@@ -21,7 +21,7 @@ class HomeScreen extends StatelessWidget {
                 height: 50,
               ),
               _topArea(),
-              _newToday(),
+              _newToday(context),
               _browseAll(),
               const SizedBox(
                 height: 10,
@@ -45,7 +45,8 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _newToday() {
+  Widget _newToday(context) {
+    final screenWidth = MediaQuery.of(context).size.width;
     return Column(
       children: [
         CustomListTile(
@@ -62,13 +63,14 @@ class HomeScreen extends StatelessWidget {
         Column(
           children: [
             Container(
+              width: screenWidth,
+              height: 387,
               decoration: BoxDecoration(
                 color: Colors.grey.shade100,
               ),
               child: ClipRRect(
                 child: Image.asset(
                   AssetsManager.IMAGE_1,
-                  height: 387,
                   fit: BoxFit.cover,
                 ),
               ),
